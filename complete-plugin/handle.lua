@@ -45,6 +45,10 @@ function CustomerHandle:access(config)
 
 	-- my logic ...
 
+	-- config 为 schema中的配置  key_names 为其中的一个值  service.host 递归值
+	kong.log.inspect(config.key1)
+	kong.log.inspect(config.service.host)
+
 	-- 执行已经加载的模块里面的function
 	access.execute(config)
 end
