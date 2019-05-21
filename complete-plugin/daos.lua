@@ -14,7 +14,7 @@ local typedefs = require "kong.db.schema.typedefs"
 -- cache  : 有两个等级 :  1 nginx work process 级别 2， nginx 级别(不同的work process)
 --						即： 如果是1 命中，则直接从lua memery cache中获取，如果是2 ，则从SHM中获取
 -- 缓存操作方法：
--- 		value, err = cache:get(key, opts?, cb, ...) 获取和设置一个值： 如果不存在，则用cb来获取。 否则返回ngx.ERR 级别的错误, 第四个及之后的参数是第三个的形参。第三个为可调用的封装
+-- 		value, err = cache:get(key, opts?, cb, ...) 获取一个值： 如果不存在，则用cb来获取。 否则返回ngx.ERR 级别的错误, 第四个及之后的参数是第三个的形参。第三个为可调用的封装
 --      ttl, err, value = cache:probe(key)  检查是够存在
 -- 		cache:invalidate_local(key)  仅在本节点删除key
 --		cache:invalidate(key)        在集群中删除(即：删除之后广播给集群中其他节点)
