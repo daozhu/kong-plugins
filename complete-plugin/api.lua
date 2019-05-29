@@ -40,7 +40,7 @@ return {
 			end,
 			GET  = endpoints.get_entity_endpoint(credentials_schema),
 			PUT  = function(self, db, helpers)
-			self.args.post.consumer = { id = self.consumer.id }
+				self.args.post.consumer = { id = self.consumer.id }
 				return endpoints.put_entity_endpoint(credentials_schema)(self, db, helpers)
 			end,
 		},

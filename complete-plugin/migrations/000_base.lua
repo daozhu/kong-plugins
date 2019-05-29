@@ -15,8 +15,7 @@ return {
 
 			DO $$
 			BEGIN
-				CREATE INDEX IF NOT EXISTS "my_plugin_table_col1"
-												ON "my_plugin_table" ("col1");
+				CREATE INDEX IF NOT EXISTS "my_plugin_table_col1" ON "my_plugin_table" ("col1");
 			EXCEPTION WHEN UNDEFINED_COLUMN THEN
 				-- Do nothing, accept existing state
 			END$$;

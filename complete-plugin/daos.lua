@@ -27,10 +27,12 @@ local keyauth_credentials = {
 	primary_key = { "id" },
 	-- String  被用于 kong.db.[name]  so here is : kong.db.keyauth_credentials
 	name = "keyauth_credentials",
-	-- String  用于admin api 中，可被美化的url结构参数：比如，此处 /keyauth_credentials/foo 则 key=>foo。 默认主键也可以 /keyauth_credentials/123 则 id=>123
+	-- String  用于admin api 中，可被美化的url结构参数：
+	--    比如，此处 /keyauth_credentials/foo 则 key=>foo。 默认主键也可以 /keyauth_credentials/123 则 id=>123
 	endpoint_key = "key",
 	-- array 对应于实体里面定义的属性 ， 定义了kong.db.<dao>:cache_key(arg1, arg2, arg3, ...) 函数的参数，参见：handle
-	-- 能作为cache_key 的，必须是唯一性的组合。 每次的curd。kong都会生成这个cache_key，并广播给所有的节点，以供缓存同步。父级缓存的变更会应该子级缓存
+	-- 能作为cache_key 的，必须是唯一性的组合。 
+	--   每次的curd。kong都会生成这个cache_key，并广播给所有的节点，以供缓存同步。父级缓存的变更会应该子级缓存
 	cache_key = { "key" },
 	-- 表结构 --字段及其规则
 	fields = {

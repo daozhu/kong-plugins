@@ -35,7 +35,7 @@ function CustomerHandle:init_worker()
 
 	-- my logic ...
 
-	-- 监听改插件DAO的所有的CURD (本例是只监听 update)
+	-- 监听插件DAO的所有的CURD (本例只监听 update)
 	kong.worker_events.register(function(data)
 		kong.log.inspect(data.operation)  -- "update"
 		kong.log.inspect(data.old_entity) -- old entity table (only for "update")
