@@ -3,6 +3,8 @@
 -- 用户的这些请求参数会传给 handle中的被执行的function的形参：config
 
 
+local typedefs = require "kong.db.schema.typedefs"
+
 local function server_port(given_value, given_config)
 	-- validation
 	if given_value > 9000
@@ -16,6 +18,8 @@ end
 
 
 return {
+	-- 插件名字
+	name: "plugin-name",
 	-- 如果为true，只能用在services和routes
 	no_consumer = true,
 	-- k/v and it`s rule  -> table  超出的参数将视为无效返回
@@ -49,7 +53,7 @@ return {
 	-- @param `is_updating` boolean that whether or not the contxt is a update 
 	-- @param `valid`    	boolean that whether or not the config is valid 
 	-- @param `error`    	DAO`s error 
-	self_check = function (schema, config, dao, is_updating, valid, error)
+	entity_checks = function (schema, config, dao, is_updating, valid, error)
 		-- verification
 
 		return true
